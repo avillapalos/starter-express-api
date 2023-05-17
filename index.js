@@ -7,7 +7,8 @@ app.use(express.json());
 
 app.post("/create-payment-intent", async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Methods', 'POST')
+    res.header('Access-Control-Allow-Credentials', true)
+    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
 
     const { amount } = req.body;
 
