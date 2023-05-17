@@ -6,6 +6,9 @@ app.use(express.static("public"));
 app.use(express.json());
 
 app.post("/create-payment-intent", async (req, res) => {
+    res.header 'Access-Control-Allow-Origin', '*'
+    res.header 'Access-Control-Allow-Methods', 'POST'
+
     const { amount } = req.body;
 
     // Create a PaymentIntent with the order amount and currency
