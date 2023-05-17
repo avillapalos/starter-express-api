@@ -22,4 +22,4 @@ app.post("/create-payment-intent", async (req, res) => {
     });
 });
 
-app.listen(4242);
+app.listen(process.env.PORT || 4242);
