@@ -116,13 +116,9 @@ app.post("/create-payment-intent", async (req, res) => {
     });
 });
 
-app.use((req, res, next) => {
+app.post("/sequra-form", async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', '*');
-    next();
-});
-
-app.post("/sequra-form", async (req, res) => {
     let data = {};
     try {
         data = sequraData(req);
