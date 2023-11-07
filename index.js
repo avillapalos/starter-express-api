@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const app = express();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-app.use(cors());
+app.use(cors({origin: '*' }));
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -117,8 +117,6 @@ app.post("/create-payment-intent", async (req, res) => {
 });
 
 app.post("/sequra-form", async (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', '*');
     let data = {};
     try {
         data = sequraData(req);
