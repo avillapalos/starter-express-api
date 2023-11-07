@@ -7,9 +7,6 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 app.use(cors({
     origin: 'https://www.coolfy.net',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-    credentials: true
 }));
 
 app.use(express.static("public"));
@@ -120,6 +117,10 @@ app.post("/create-payment-intent", async (req, res) => {
         clientSecret: paymentIntent.client_secret,
     });
 });
+
+app.use(cors({
+    origin: 'https://www.coolfy.net',
+}));
 
 app.post("/sequra-form", async (req, res) => {
     let data = {};
