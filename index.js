@@ -5,9 +5,7 @@ const bodyParser = require('body-parser')
 const app = express();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-app.use(cors({
-    origin: 'https://www.coolfy.net',
-}));
+app.use(cors());
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -118,10 +116,6 @@ app.post("/create-payment-intent", async (req, res) => {
     });
 });
 
-app.use(cors({
-    origin: 'https://www.coolfy.net',
-}));
-
 app.post("/sequra-form", async (req, res) => {
     let data = {};
     try {
@@ -156,7 +150,7 @@ app.post("/sequra-form", async (req, res) => {
     }
 
     try {
-        const postResponse = await fetch('https://sandbox.sequrapi.com/orders', {
+        const postResponse = await fetch('https://live.sequrapi.com/orders', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
