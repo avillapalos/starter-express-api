@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const app = express();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-app.use(cors({origin: '*' }));
+app.use(cors({origin: 'https://www.coolfy.net' }));
 
 app.use(express.static("public"));
 app.use(express.json());
