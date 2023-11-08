@@ -211,7 +211,7 @@ app.post("/sequra-confirm-payment", async (req, res) => {
     if (req.body.sq_state === "approved" || req.body.sq_state === "needs_review") {
         data.order.state = req.body.sq_state === "approved" ? "confirmed" : "on_hold";
         try {
-            const putResponse = await fetch(`https://sandbox.sequrapi.com/orders/${req.body.order_ref}`, {
+            const putResponse = await fetch(`https://live.sequrapi.com/orders/${req.body.order_ref}`, {
                 method: 'PUT',
                 body: JSON.stringify(data),
                 headers: {
