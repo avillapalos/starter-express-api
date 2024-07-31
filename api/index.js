@@ -237,4 +237,4 @@ app.post("/sequra-webhook", async (req, res) => {
     res.status(200).send();
 });
 
-app.listen(process.env.PORT || 4242);
+app.listen(process.env.PORT || 3000);
